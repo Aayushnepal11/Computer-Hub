@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block content %}
+<h1 class="display-4 text-center"> Update Form </h1>
+<hr>
+<form action="" method="post" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% bootstrap_button button_type="submit" content="Save" %}
+</form>
+<hr />
+<a class="btn btn-primary" href="{% url 'computer_hub:home' %}">Back to Home</a>
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block content %}
+    <h1 class="display-4 text-center"> Create the New Specification</h1>
+    <hr />
+    <form action="" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% bootstrap_button type="submit" content="Save"%}
+    </form>
+{% endblock content %}

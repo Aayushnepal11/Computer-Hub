@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="display-3 text-center"> My Favorite Laptop Brand's List</h1>
+    <hr />
+    <div class="row">
+    {% for computer_name in computer_brand  %}
+    <div class="col-md-5">
+        <div class="card m-1">
+            <div class="d-flex justify-content-center">
+                <img class="my-1" src="{{ computer_name.logo.url }}" alt="{{ computer_name.logo }}" style="width: 50%; height: auto;" />
+            </div>
+            <span class="badge text-primary"><a href="{% url 'computer_hub:spec' computer_name.id %}" class="btn btn-dark"> {{ computer_name | title  }}</a></span>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+{% endblock content %}

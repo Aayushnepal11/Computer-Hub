@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="display-4 text-center">Order Summary Details</h1>
+<hr/>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">SN.</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Generation</th>
+            <th scope="col">Computer Code</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Unit Rate</th>
+            <th scope="col">Total Price</th>
+            <th>Action</td>
+        </tr>
+        {% for fetch in fetch_data  %}
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ forloop.counter }}
+                <td>{{data_set.brand.brand_name}}</td>
+                <td>{{data_set.generation}}</td>
+                <td>{{fetch.computer_code}}</td>
+                <td>{{ fetch.quantity }}</td>
+                <td>Rs.{{ fetch.unit_rate }}</td>
+                <td>Rs.{{ fetch.total_price }}</td>
+                <td>
+                    <a class="btn btn-warning" href="{% url 'computer_hub:update_orders' fetch.pk %}">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+        {% empty %}
+        <div class="alert alert-info">Your Order Summary is empty.</div>
+        {% endfor %}
+      </table>
+      <a class="btn btn-primary" href="{% url 'computer_hub:home' %}">Back to Home</a>
+{% endblock content %}

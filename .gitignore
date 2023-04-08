@@ -1,0 +1,8 @@
+env
+include
+lib
+scripts
+.env
+*.sqlite3
+pyvenv.cfg
+__pycache__
